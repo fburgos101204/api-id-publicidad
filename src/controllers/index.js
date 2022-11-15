@@ -1,0 +1,12 @@
+/* import all controllers and make available in a single object */
+exports.UserController = require('./UserController')
+exports.customerController = require('./customerController')
+exports.ticketsController = require('./ticketsController')
+exports.centersController = require('./centersController')
+exports.transactionsController = require('./transactionsController')
+exports.refillsController = require('./refillsController')
+exports.countriesController = require('./countriesController')
+exports.infoController = require('./infoController')
+exports.rechargesController = require('./rechargesController')
+exports.rechargesController = require('./operatorsController')
+exports.rechargesController = require('./insuranceController')

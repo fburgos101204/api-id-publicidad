@@ -1,0 +1,6 @@
+.env*.local
+.eslintrc.json
+node_modules
+jspm_packages
+package-lock.json
+.serverless
