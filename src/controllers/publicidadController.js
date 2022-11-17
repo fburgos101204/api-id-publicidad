@@ -6,7 +6,7 @@ const secret = process.env.TOKEN_SECRET;
 let Utils = require('../helpers/utils');
 process.env.TZ = "America/Santo_Domingo";
 
-jwtVerify = (token) =>{
+jwtVerify = (token) => {
   let obj = []
   jwt.verify(token, secret, (err, decoded) => {
     if (err) {
@@ -35,11 +35,11 @@ jwtVerify = (token) =>{
 // Todas las publicidad (Ready)
 exports.findAll = (req, res) => {
   Publicidad.findAll((err, data) => {
-    if(err)
-    res.status(500).send({
-      message: err.message || "Ta mal",
-      error: true
-    });
+    if (err)
+      res.status(500).send({
+        message: err.message || "Ta mal",
+        error: true
+      });
     else res.send(data);
   });
 }
@@ -49,7 +49,7 @@ exports.createPublicidad = (req, res) => {
 
   if (!req.body) {
     res.status(400).send({
-     message: "Ta mal",
+      message: "Ta mal",
       error: true
     });
   }
@@ -68,10 +68,10 @@ exports.createPublicidad = (req, res) => {
     usuario_created: req.body.usuario_created,
     loop: req.body.loop,
   }
-  
+
   let dataJwt = jwtVerify(req.headers.token)
-  Publicidad.createPublicidad(datos,(err, data) => {
-    if(err){
+  Publicidad.createPublicidad(datos, (err, data) => {
+    if (err) {
       res.status(500).send({
         message: err.message || "Ta mal",
         error: true
@@ -86,7 +86,7 @@ exports.updatePublicidad = (req, res) => {
 
   if (!req.body) {
     res.status(400).send({
-     message: "Ta mal",
+      message: "Ta mal",
       error: true
     });
   }
@@ -107,8 +107,8 @@ exports.updatePublicidad = (req, res) => {
   }
 
   let dataJwt = jwtVerify(req.headers.token)
-  Publicidad.updatePublicidad(datos,(err, data) => {
-    if(err){
+  Publicidad.updatePublicidad(datos, (err, data) => {
+    if (err) {
       res.status(500).send({
         message: err.message || "Ta mal",
         error: true
@@ -121,11 +121,11 @@ exports.updatePublicidad = (req, res) => {
 // Desactivar Publicidad  (Ready)
 exports.disabledPublicidad = (req, res) => {
   Publicidad.disabledPublicidad(req.params.id, (err, data) => {
-    if(err)
-    res.status(500).send({
-      message: err.message || "Ta mal",
-      error: true
-    });
+    if (err)
+      res.status(500).send({
+        message: err.message || "Ta mal",
+        error: true
+      });
     else res.send(data);
   });
 }
@@ -133,11 +133,23 @@ exports.disabledPublicidad = (req, res) => {
 // Activar Publicidad (Ready)
 exports.enabledPublicidad = (req, res) => {
   Publicidad.enabledPublicidad(req.params.id, (err, data) => {
-    if(err)
-    res.status(500).send({
-      message: err.message || "Ta mal",
-      error: true
-    });
+    if (err)
+      res.status(500).send({
+        message: err.message || "Ta mal",
+        error: true
+      });
+    else res.send(data);
+  });
+}
+
+// eliminar Publicidad (Ready)
+exports.deletePublicidad = (req, res) => {
+  Publicidad.deletePublicity(req.params.id, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message: err.message || "Ta mal",
+        error: true
+      });
     else res.send(data);
   });
 }
