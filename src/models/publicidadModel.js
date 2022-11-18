@@ -69,6 +69,9 @@ Publicidad.updatePublicidad = (pb, result) => {
   });
 }
 
+git config user.name "fburgos101204"
+git config user.email "fernando@virtualdoc.com.do"
+
 // Desactivar Publicidad  (Ready)
 Publicidad.disabledPublicidad = (id, result) => {
   pg.query(`UPDATE publicidad SET estado = 2 WHERE id = '${id}'`, (err, res, rows) => {
