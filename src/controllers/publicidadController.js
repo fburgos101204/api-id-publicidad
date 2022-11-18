@@ -103,7 +103,7 @@ exports.updatePublicidad = (req, res) => {
     fecha_inicio: req.body.fecha_inicio,
     usuario_created: req.body.usuario_created,
     loop: req.body.loop,
-    id: req.params.id
+    id: req.body.id
   }
 
   let dataJwt = jwtVerify(req.headers.token)
